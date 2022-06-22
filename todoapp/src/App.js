@@ -1,20 +1,14 @@
-import Bike from "./components/List";
-import Color from "./components/Color";
-import Clock from "./components/Clock";
-import Toggle from "./components/Toggle";
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import ContainBox from './components/ContainBox';
+import Calculator from './components/Calculator';
 
 function App() {
-  
-  return (
-    <div className="App">
-      <Color/>
-      <Bike/>
-      <Clock/>
-      <Toggle/>
-    </div>
-  );
+    return (
+        <div>
+            <ContainBox/>
+            <Calculator/>
+        </div>
+    )
 }
-
-export default App;
+export default App
