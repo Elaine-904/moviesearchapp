@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Search from "./Search";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {  Table } from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
 
