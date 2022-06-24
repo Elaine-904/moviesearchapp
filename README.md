@@ -2,6 +2,7 @@
 use The Movie Database (TMDB) API as datasource, can search movie title and list the movie posters, movie overview....,etc.
 
 ### Info
+Go to the root folder: searchmovie
 Install a local copy by downloading this library and running
 
     npm install
