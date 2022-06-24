@@ -1,13 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from "react";
-import ContainBox from './components/ContainBox';
-import Calculator from './components/Calculator';
+import React from "react";
+import Fetch from './components/Fetch';
+import Header from "./components/Header";
+import './index.css';
 
 function App() {
     return (
-        <div>
-            <ContainBox/>
-            <Calculator/>
+        <div className='App'>
+            <Header/>
+            <Fetch/>
         </div>
     )
 }
