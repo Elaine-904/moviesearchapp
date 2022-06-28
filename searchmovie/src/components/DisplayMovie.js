@@ -3,7 +3,8 @@ import Container from 'react-bootstrap/Container';
 
 const defaultPoster = "https://image.tmdb.org/t/p/w300/pnLopkBeVGd0v77gpTNdPqQESUs.jpg"
 
-const DisplayMovie = ({ loading, errorMessage, filterlists }) => {
+const DisplayMovie = ({ loading, errorMessage, filterlists, matchcate }) => {
+
     return (<>
         {
             loading && !errorMessage ? (
@@ -23,7 +24,23 @@ const DisplayMovie = ({ loading, errorMessage, filterlists }) => {
                         </tr>
                         <tbody>
                             {filterlists.map((movie, index) => {
-                                return <tr className="table-dark" key={movie.id}>
+                                const clist = (genre_ids) => {
+                                    let result = (matchcate.filter(i => (genre_ids.includes(i.id))))
+                                        .map(c => c.name)
+                                    return (
+                                        <ul>
+                                            {result.map((name, index) => {
+                                                return (
+                                                    <>
+                                                        <li key={index}>{name}</li>
+                                                    </>
+                                                )
+                                            })}
+                                        </ul>
+                                    )
+                                }
+
+                                return (<tr className="table-dark" key={movie.id}>
                                     <td>{index + 1}</td>
                                     <td >
                                         <img
@@ -35,10 +52,10 @@ const DisplayMovie = ({ loading, errorMessage, filterlists }) => {
                                         />
                                     </td>
                                     <td >{movie.original_title}</td>
-                                    <td >{movie.genre_ids}</td>
+                                    <td >{clist(movie.genre_ids)}</td>
                                     <td >{movie.overview} </td>
                                     <td >{movie.popularity} </td>
-                                </tr>
+                                </tr>)
                             })}
                         </tbody>
                     </Table>
