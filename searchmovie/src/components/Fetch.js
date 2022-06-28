@@ -11,7 +11,6 @@ function Fetch(){
     const [errorMessage, setErrorMessage] = useState(null)
     const [searchValue, setSearchValue] = useState("");
     const [optionsState, setOptionsState] =useState(0) 
-    const [matchcate, setMatchCate] = useState([])
 
     useEffect(()=>{
         fetchMovie();
@@ -27,19 +26,6 @@ function Fetch(){
                 console.log(lists)
             })
     }
-
-    const movieCategory =async()=>{
-        fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=98cdb401ee8454975b44f71ce9e467be&language=en-US")
-            .then(res=>res.json())
-            .then(data=>{
-                setMatchCate(data.genres)
-                console.log(matchcate)
-                
-            })
-    }
-
-
-    useEffect(()=>{movieCategory();},[])
 
     const search = async(searchValue) =>{
         const url = `https://api.themoviedb.org/3/search/movie?api_key=98cdb401ee8454975b44f71ce9e467be&language=en-US&query=${searchValue}&page=1&include_adult=false`
@@ -59,12 +45,10 @@ function Fetch(){
         if(optionsState===0){
             return setFilterLists(lists);
         }
-        let result = 
-            lists.filter((movie) =>
-                movie.genre_ids.includes(Number(optionsState)));
+        let result = lists.filter((movie) =>(movie.genre_ids.includes(Number(optionsState))));
         setFilterLists(result)
     }
-
+    
     return (
             <>   
                 <Search
@@ -85,7 +69,6 @@ function Fetch(){
                     loading={loading}
                     errorMessage={errorMessage}
                     filterlists={filterlists}
-                    matchcate={matchcate}
                 />
             </>
             )
