@@ -9,23 +9,27 @@ const defaultPoster = "https://image.tmdb.org/t/p/w300/pnLopkBeVGd0v77gpTNdPqQES
 
 
 const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
+    const [direction, setDirection] = useState('ascending')
 
-    function requestSort(sortedField){
+
+    function handleClick(sortedField){
         let sortedList = [...filterlists];
         if (sortedField !== null) {
             sortedList.sort((a,b)=>{
-                if (a[sortedField] < b[sortedField]) {
-                    return -1;
+                if (direction==='ascending') {
+                    setDirection('descending')
+                    return a[sortedField] -b[sortedField]? -1:1;
                 }
-                if (a[sortedField] > b[sortedField]) {
-                    return 1;
+                if (direction==='descending') {
+                    setDirection('ascending')
+                    return b[sortedField] -a[sortedField]? 1:-1;
                 }
                 return 0;
                 });
             }
         setFilterLists(sortedList);
     }
-    
+
     const showList = filterlists.map((movie, index) => {
         return (<tr className="table-dark" key={movie.id}>
             <td>{index + 1}</td>
@@ -56,9 +60,9 @@ const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
                         <tr>
                             <th>#</th>
                             <th>Poster </th>
-                            <th>Movie Title<button class="btn btn-sm" onClick={() =>  requestSort('title')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
-                            <th>Overview<button class="btn btn-sm" onClick={() =>  requestSort('overview')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
-                            <th>Score<button class="btn btn-sm" onClick={() =>  requestSort('popularity')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
+                            <th>Movie Title<button  class="btn btn-sm" onClick={() => handleClick('title')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
+                            <th>Overview</th>
+                            <th>Score<button  class="btn btn-sm" onClick={() => handleClick('popularity')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
                         </tr>
                         <tbody>
                             {showList}
