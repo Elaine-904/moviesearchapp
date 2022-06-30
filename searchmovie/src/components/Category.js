@@ -4,12 +4,16 @@ function Category({getCategory,optionsState,setOptionsState}){
         setOptionsState(event.target.value);
         getCategory(optionsState);
     }
+
+    
     return(<>  
                 <select  
                     class="btn btn-outline-warning" 
                     value={optionsState} 
                     onChange={handleSelect}
+                    required
                 >  
+                            <option value="0" disabled selected hidden>------Select your category-------</option>
                             <option value = "0">All</option>
                             <option value = "28">Action</option>
                             <option value = "12">Adventure</option>
@@ -29,6 +33,7 @@ function Category({getCategory,optionsState,setOptionsState}){
                             <option value="10752">War</option>
                             <option value="37">Western</option>
                 </select>
+                <br/>
         </>
     )
 }

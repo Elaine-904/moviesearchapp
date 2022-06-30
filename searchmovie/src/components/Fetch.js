@@ -48,7 +48,11 @@ function Fetch(){
         let result = lists.filter((movie) =>(movie.genre_ids.includes(Number(optionsState))));
         setFilterLists(result)
     }
+
+   
     
+
+
     return (
             <>   
                 <Search
@@ -69,6 +73,7 @@ function Fetch(){
                     loading={loading}
                     errorMessage={errorMessage}
                     filterlists={filterlists}
+                    setFilterLists={setFilterLists}
                 />
             </>
             )
