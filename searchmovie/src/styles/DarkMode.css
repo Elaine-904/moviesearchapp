@@ -1,0 +1,20 @@
+
+#darkMode {
+    width: 45px;
+    height: 45px;
+    filter: grayscale(100%);
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
+  
+  #darkMode:hover{
+    filter: none;
+    background-color: rgb(115, 126, 140);
+    cursor: pointer;
+  }
+  
+  #darkMode.clicked {
+    filter: none !important;
+    background-color:  rgb(245, 247, 250);
+  }

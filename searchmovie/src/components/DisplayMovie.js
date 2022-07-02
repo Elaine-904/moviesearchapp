@@ -18,11 +18,11 @@ const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
             sortedList.sort((a,b)=>{
                 if (direction==='ascending') {
                     setDirection('descending')
-                    return a[sortedField] -b[sortedField]? -1:1;
+                    return a[sortedField] -b[sortedField];
                 }
                 if (direction==='descending') {
                     setDirection('ascending')
-                    return b[sortedField] -a[sortedField]? 1:-1;
+                    return b[sortedField] -a[sortedField];
                 }
                 return 0;
                 });
@@ -31,7 +31,7 @@ const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
     }
 
     const showList = filterlists.map((movie, index) => {
-        return (<tr className="table-dark" key={movie.id}>
+        return (<tr key={movie.id}>
             <td>{index + 1}</td>
             <td >
                 <img
@@ -56,14 +56,16 @@ const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
                 <div>{errorMessage}</div>
             ) : (
                 <Container>
-                    <Table  >
+                    <Table className="table table-hover table-dark" >
+                    <thead>
                         <tr>
                             <th>#</th>
                             <th>Poster </th>
-                            <th>Movie Title<button  class="btn btn-sm" onClick={() => handleClick('title')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
+                            <th>Movie Title</th>
                             <th>Overview</th>
-                            <th>Score<button  class="btn btn-sm" onClick={() => handleClick('popularity')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
+                            <th>Score<button  class="btn btn-sm btn-light" onClick={() => handleClick('popularity')} type="button"><FontAwesomeIcon icon={faSort} /></button></th>
                         </tr>
+                        </thead>
                         <tbody>
                             {showList}
                         </tbody>
@@ -71,6 +73,11 @@ const DisplayMovie = ({ loading, errorMessage, filterlists,setFilterLists}) => {
                 </Container>
             )
         }
+         <footer >
+          <div>
+            <p className="fst-italic text-reset">Made with react-bootstrap by elaine.</p>
+            </div>
+        </footer>
     </>
     )
 }

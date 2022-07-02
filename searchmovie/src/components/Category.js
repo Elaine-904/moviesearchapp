@@ -8,7 +8,7 @@ function Category({getCategory,optionsState,setOptionsState}){
     
     return(<>  
                 <select  
-                    class="btn btn-outline-warning" 
+                    class="btn btn-dark mb-3" 
                     value={optionsState} 
                     onChange={handleSelect}
                     required
