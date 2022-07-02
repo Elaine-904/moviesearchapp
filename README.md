@@ -1,8 +1,8 @@
 ### movie search app react 
-use The Movie Database (TMDB) API as datasource, can search movie title and list the movie posters, movie overview....,etc.
+use The Movie Database (TMDB) API as datasource, able to search keywords of the movietitle and rank movie popularity scores. Pending to deploy in future.
 
 ### Info
-Go to the root folder: searchmovie
+Remember to go to the root folder: searchmovie
 Install a local copy by downloading this library and running
 
     npm install
@@ -15,10 +15,12 @@ Launch a local development environment by running
 
 **Component**
 
-Components are split into three different categories:
+Components are split into five different categories:
 
--   Header 
--   Movie list
--   Search 
+-   Header (banner)
+-   Fetch (ancestor component--- fetch TMDB api)
+-   Search (search bar)
+-   Category(category selector)
+-   DisplayMovie(movie tables display)
 
-  it will update the filter features later....🧚🏻‍♀️
+  basic features have been completed, and it's pending to deploy to Netlify, and the color mode changing would be updated in future....🧚🏻‍♀️
