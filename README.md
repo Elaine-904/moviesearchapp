@@ -1,5 +1,5 @@
 ### movie search app react 
-use The Movie Database (TMDB) API as datasource, able to search keywords of the movietitle and rank movie popularity scores. Pending to deploy in future.
+use The Movie Database (TMDB) API as datasource, able to search keywords of the movietitle and rank movie popularity scores. And is deploy on vercel, can get access: https://movielizzard.vercel.app/
 
 ### Info
 Remember to go to the root folder: searchmovie
@@ -22,5 +22,6 @@ Components are split into five different categories:
 -   Search (search bar)
 -   Category(category selector)
 -   DisplayMovie(movie tables display)
+-   DardMode(color mode)
 
-  basic features have been completed, and it's pending to deploy to Netlify, and the color mode changing would be updated in future....🧚🏻‍♀️
+
