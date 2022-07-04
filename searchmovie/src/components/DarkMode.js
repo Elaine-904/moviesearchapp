@@ -11,25 +11,10 @@ const DarkMode = () => {
   const darkTheme = "dark";
 
   const [theme, setTheme] = useState(darkTheme)
-
-  const themeToggle = (e) => {
-    if (theme === 'light') {
-      setTheme('dark')
-      body.classList.replace(darkTheme, lightTheme);
-      e.target.classList.remove(clickedClass);
-      window.localStorage.setItem('theme', 'dark');
-    }
-
-    else {
-      setTheme('light')
-      body.classList.replace(darkTheme, lightTheme);
-      e.target.classList.remove(clickedClass);
-      window.localStorage.setItem('theme', 'light');
-    }
-  };
-
+  
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
+    console.log(localTheme)
     if (localTheme) {
       setTheme(localTheme);
       body.classList.add(theme);
@@ -41,6 +26,23 @@ const DarkMode = () => {
 
     }
   }, [theme])
+
+  const themeToggle = (e) => {
+    if (theme === 'light') {
+      setTheme('dark')
+      body.classList.replace(lightTheme, darkTheme);
+      e.target.classList.remove(clickedClass);
+      window.localStorage.setItem('theme', 'dark');
+    }
+    else {
+      setTheme('light')
+      body.classList.replace(darkTheme, lightTheme);
+      e.target.classList.remove(clickedClass);
+      window.localStorage.setItem('theme', 'light');
+    }
+  };
+
+  
 
   return (
     <button
